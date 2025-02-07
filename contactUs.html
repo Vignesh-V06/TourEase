@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="navigation">
+            <input type="checkbox" id="check">
+            <label for="check" class="check_btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <label class="logo">TourEase</label>
+            <ul>
+                <li><a href="https://vtop.vit.ac.in/vtop/login">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="contactUs.html">CONTACT US</a></li>
+                <li><button class="btnLogin-popup">login</button></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section class="contact-section">
+            <h2>Contact Us</h2>
+            <p>Have questions or need support? Fill out the form below, and we'll get back to you as soon as possible.</p>
+     
+            <form class="contact-form">
+                <label for="name">Your Name</label>
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                <input type="text" id="name" name="name" required><br>
+               
+                <label for="email">Your Email</label>
+                <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                <input type="email" id="email" name="email" required><br>
+               
+                <label for="message">Your Message</label>
+                <span class="icon"><ion-icon name="chatbox-ellipses-outline"></ion-icon></span>
+                <textarea id="message" name="message" rows="4" required></textarea>
+    
+                <button type="submit">Send Message</button>
+            </form>
+    
+            <div class="contact-info">
+                <p><strong>Email:</strong> support@tourease.com</p>
+                <p><strong>Phone:</strong> +91 9876543210</p>
+                <p><strong>Address:</strong> VIT Campus, Vellore, India</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 TourEase. All rights reversed.</p>
+                <div class="social-icon">
+                    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
