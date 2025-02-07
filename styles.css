@@ -483,3 +483,11 @@ p {
         box-shadow: 0 0 20px rgba(200, 200, 200, 1);
     }
 }
+.contact-form .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #05190A;
+    line-height: 57px;
+
+}
