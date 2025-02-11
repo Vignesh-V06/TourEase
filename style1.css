@@ -1,0 +1,700 @@
+/* Reset Default Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+/* Body Background */
+body {
+    background-color: white;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Wrapper to hold background image behind tables */
+.bg-wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px; /* Adjusted to prevent overlap */
+    background-image: url('https://wallpapercave.com/wp/wp3948175.jpg'); /* Your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 1000px;
+    
+}
+
+/* Semi-transparent black overlay for better readability */
+.bg-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust transparency here */
+    z-index: 1;
+}
+
+/* Semi-transparent overlay */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white overlay */
+    z-index: -1; /* Place the overlay behind the content */
+}
+
+/* Header Styling */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 40px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 10;
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.logo .highlight {
+    color: red;
+}
+
+/* Slogan Styling */
+.slogan {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Merriweather', serif;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Login Button */
+.btn-login {
+    padding: 6px 30px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-login:hover {
+    background: white;
+    color: black;
+}
+
+/* Language Dropdown */
+#language-select {
+    margin-left: 15px;
+    padding: 6px 30px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    appearance: none;
+}
+
+#language-select:hover {
+    background: white;
+    color: black;
+}
+
+/* New Table (Top Table) */
+.new-table {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 50%;
+    height: 17%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Larger Table (Overlapping Bottom Table) */
+.large-table {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 75%;
+    height: 450px;
+    margin-top: -40px;
+    position: relative;
+    z-index: 1;
+}
+
+.new-table{
+    margin-top: 80px;
+}
+
+.new-table table{
+    padding-bottom: 400px;
+}
+
+
+/* Table Content */
+.new-table table, .large-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.new-table table {
+    width: 100%;
+    border-collapse: collapse;
+    position: relative;
+    top: 10px; /* Moves the contents slightly up to center it */
+}
+
+.new-table .option.selected::after {
+    bottom: 2px; /* Keeps the blue bar inside the table */
+}
+
+
+
+.large-table{
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 75%;
+    position: relative;
+    z-index: 2; /* Ensure content is above overlay */
+    padding-bottom: 20px;
+}
+
+.new-table {
+    
+    top: 10px; /* Below header */
+    z-index: 900;
+}
+
+/* Ensure all table contents are centered */
+.new-table table td,
+.new-table table th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Option Styling */
+.option {
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    font-weight: 600;
+    color: #333;
+    border-radius: 15px;
+}
+
+/* Option Images */
+.option img {
+    width: 40px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.option:hover img {
+    transform: scale(1.1);
+}
+
+.option:hover {
+    color: #007bff;
+    transform: scale(1.05);
+}
+
+/* Selected Option - Add Blue Horizontal Bar */
+.option.selected {
+    position: relative;
+}
+
+/* Blue Horizontal Bar Under Selected Image */
+.option.selected::after {
+    content: "";
+    width: 60%; /* Adjust width as needed */
+    height: 4px;
+    background-color: #007bff;
+    position: absolute;
+    bottom: -5px; /* Positioned just below the image */
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.ti {
+    margin-top: 100px;
+    height: 150px;
+}
+
+.fl, .fli {
+    border-style: solid;
+    border-color: gray;
+    border-width: 0.5px;
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for table cells */
+.fl:hover, .fli:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header alignment and icon styling */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.header h3, .header h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.icon {
+    font-size: 16px;
+    color: #007bff;
+}
+
+/* Selected value styling */
+.selected-value {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Search bar, date picker, and traveller input styling */
+.search-bar, .date-picker, .traveller-input {
+    display: none;
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus, .date-picker:focus, .traveller-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Animation for search bar, date picker, and traveller input */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-bar, .date-picker, .traveller-input {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Add a subtle shadow to table cells */
+.fl, .fli {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Highlight selected cell */
+.fl.selected, .fli.selected {
+    border-color: #007bff;
+    background-color: #e3f2fd;
+}
+
+/* Offer Table Styling */
+.offer-table {
+    margin-top: 70px; /* Added more margin to bring the table down */
+    width: 100%;
+    text-align: center;
+}
+
+.offer-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.offer-table td {
+    padding: 10px;
+}
+
+.offer-table b {
+    font-size: 16px;
+    color: #333;
+}
+
+.offer {
+   
+    border-radius: 20px; /* Increased border-radius for curved borders */
+    padding: 10px 20px; /* Adjusted padding for better spacing */
+    margin: 5px;
+    background-color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.offer:hover {
+    background-color: #f8f9fa;
+    border-color: #007bff;
+    transform: scale(1.05);
+}
+
+.offer.selected {
+    border: 2px solid #007bff; /* Highlight only the border in blue */
+}
+
+.offer label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.offer input[type="radio"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.offer span {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Center align all text in the table */
+.offer-table table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.im {
+    width: 40px;
+    margin-top: 3px;
+}
+
+.fare-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.sear {
+    border-radius: 40px;
+    border: 5px solid #007bff;
+    background: linear-gradient(145deg, #007bff, #0056b3);
+    color: white;
+    margin-top: 40px;
+    width: 150px;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5), -3px -3px 10px rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sear:hover {
+    background: linear-gradient(145deg, #0056b3, #004494);
+    transform: scale(1.1);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6), -5px -5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.sear:active {
+    transform: scale(0.95);
+    box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.exp-table {
+    background-color: white;
+    border-radius: 80px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 80%;
+    max-width: 900px;
+    padding: 15px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    animation: fadeIn 0.5s ease-in-out;
+    position: relative;
+    z-index: 3;
+    top: -60px;
+}
+
+.exp-option {
+    padding: 25px 40px;
+    border: 2px solid #3498db;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    background: white;
+    display: flex;
+    align-items: center;
+    height:20px;
+    gap: 10px; /* Space between icon and text */
+}
+
+.exp-option:hover {
+    background: #3498db;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(52, 152, 219, 0.5);
+}
+
+.exp-icon {
+    font-size: 18px; /* Adjust icon size */
+    color: #3498db; /* Icon color */
+    transition: color 0.3s ease-in-out;
+}
+
+.exp-option:hover .exp-icon {
+    color: white; /* Change icon color on hover */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.exploremore{
+    position: relative;
+    margin-top: -30px;
+    color: white;
+    z-index: 50;
+    bottom: 60px;
+
+}
+
+.downloadapp{
+
+        margin-top: 80px;
+        height: 300px;
+        width: 80%;
+        border-width: 2px;
+        border-radius: 10px;
+        border-style: solid;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+        padding-left: 20px;
+        padding-top: 35px;
+        margin-bottom: 10px;
+}
+.down{
+    font-size: 50px;
+}
+.down,.cod{
+    margin-left: 100px;
+}
+
+li,ul{
+    display: inline;
+}
+
+.mobnumb{
+    color: black;
+    border-width: 2px;
+    border-radius: 20px;
+    box-shadow: #000;
+    margin-top: 60px;
+    margin-left: 70px;
+    
+}
+
+.ind{
+    font-size: 20px;
+    padding-right: 10px;
+    
+}
+.num{
+    width: 60%;
+    height: 50px;
+    padding: 20px;
+    font-size: 20px;
+}
+.subm {
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Premium Blue Gradient */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+    margin-top: 5px;
+    
+}
+
+.subm b {
+    color: white; /* Ensures text remains white */
+    position: relative;
+    z-index: 1;
+}
+
+.subm::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease-in-out;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.subm:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+}
+
+.subm:hover {
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+.subm:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(0, 123, 255, 0.2);
+}
+
+.mobnumb ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    gap: 10px; /* Space between elements */
+}
+
+/* Icon styling for the download app section */
+.icon-download {
+    font-size: 50px; /* Match the size of the heading */
+    margin-right: 15px; /* Space between icon and text */
+    vertical-align: middle; /* Align icon vertically with text */
+    color: #007bff; /* Icon color */
+}
+
+/* Ensure the heading and icon are aligned properly */
+.down {
+    display: flex;
+    align-items: center; /* Vertically center the icon and text */
+    font-size: 50px;
+    margin-left: 100px;
+}
+
+
+
+.num {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 350px; /* Adjust width */
+}
+
+.subm {
+    background-color: #ffcc00;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    min-width: 100px; /* Ensures it is aligned with input */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+    margin-top: 120px;
+    position: relative;
+    width: 100%;
+    background-color: black;
+}
+
+
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+   
+}

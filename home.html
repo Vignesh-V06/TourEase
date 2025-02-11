@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TourEase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style1.css">
+    
+    
+    <header>
+        <div class="logo">T<span class="highlight">OUR</span>Ease</div>
+        <div class="slogan">Explore Beyond Limits</div>
+        <nav>
+            <button class="btn-login" onclick="window.location.href='index.html'">Login</button>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+            </select>
+        </nav>
+    </header>
+    
+    
+</head>
+<body>
+    
+
+    <div class="bg-wrapper">
+    <div class="new-table">
+        <table>
+            <tr>
+                <td class="option"><img src="https://cdn-icons-png.flaticon.com/128/5655/5655607.png"><br><span>Flights</span></td>
+                <td class="option"><img src="https://cdn-icons-png.flaticon.com/128/6571/6571603.png"><br><span>Trains</span></td>
+                <td class="option"><img src="https://cdn-icons-png.flaticon.com/128/7697/7697559.png"><br><span>Bus</span></td>
+                <td class="option"><img src="https://cdn-icons-png.flaticon.com/128/4544/4544523.png"><br><span>Cars</span></td>
+                <td class="option"><img src="https://cdn-icons-png.flaticon.com/128/4571/4571728.png"><br><span>Hotels</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="large-table">
+        <table class="ti">
+            <tr>
+                <td class="fl" onclick="toggleSearch('fromSearch')">
+                    <div class="header">
+                        <i class="fas fa-map-marker-alt icon"></i>
+                        <h3>From</h3>
+                    </div>
+                    <span id="fromCity" class="selected-value">Delhi</span>
+                    <input type="text" id="fromSearch" class="search-bar" placeholder="Search city..." onclick="event.stopPropagation()">
+                </td>
+                <td class="fl" onclick="toggleSearch('toSearch')">
+                    <div class="header">
+                        <i class="fas fa-map-marker-alt icon"></i>
+                        <h3>To</h3>
+                    </div>
+                    <span id="toCity" class="selected-value">Bangalore</span>
+                    <input type="text" id="toSearch" class="search-bar" placeholder="Search city..." onclick="event.stopPropagation()">
+                </td>
+                <td class="fli" onclick="toggleDatePicker('departureDate')">
+                    <div class="header">
+                        <i class="fas fa-calendar-alt icon"></i>
+                        <h4>Departure</h4>
+                    </div>
+                    <span id="departureDateDisplay" class="selected-value">9 Feb '25</span>
+                    <input type="date" id="departureDate" class="date-picker" onclick="event.stopPropagation()">
+                </td>
+                <td class="fli" onclick="toggleTravellerInput('travellerCount')">
+                    <div class="header">
+                        <i class="fas fa-users icon"></i>
+                        <h4>Travellers</h4>
+                    </div>
+                    <span id="travellerCountDisplay" class="selected-value">2 Travellers</span>
+                    <input type="number" id="travellerCount" class="traveller-input" min="1" onclick="event.stopPropagation()">
+                </td>
+            </tr>
+        </table>
+       
+
+        <div class="offer-table">
+            <table>
+                <tr>
+                    <td class="off">
+                        <div class="fare-header">
+                            <b>Select a special Fare</b>
+                            <img class="im" src="https://cdn-icons-png.flaticon.com/128/4514/4514739.png">
+                        </div>
+                    </td>
+                    <td class="offer">
+                        <label>
+                            <input type="radio" name="fare" value="Regular">
+                            <span>Regular</span>
+                        </label>
+                    </td>
+                    <td class="offer">
+                        <label>
+                            <input type="radio" name="fare" value="Student">
+                            <span>Student</span>
+                        </label>
+                    </td>
+                    <td class="offer">
+                        <label>
+                            <input type="radio" name="fare" value="Senior Citizen">
+                            <span>Senior Citizen</span>
+                        </label>
+                    </td>
+                    <td class="offer">
+                        <label>
+                            <input type="radio" name="fare" value="Doctor/Nurses">
+                            <span>Doctor/Nurses</span>
+                        </label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <center>
+        <div class="sear">
+            <h1 class="se" >SEARCH</h1>
+        </div>
+    </center>
+    </div>
+    </div>
+
+    <h3 class="exploremore"> ⬇⬇ EXPLORE MORE ⬇⬇ </h3>
+
+    <div class="exp-table">
+    <div class="exp-option">
+        <i class="fas fa-map-marker-alt exp-icon"></i>
+        <span>Where 2 Go</span>
+    </div>
+    <div class="exp-option">
+        <i class="fas fa-suitcase exp-icon"></i>
+        <span>My Trips</span>
+    </div>
+    <div class="exp-option">
+        <i class="fas fa-shield-alt exp-icon"></i>
+        <span>Insurance</span>
+    </div>
+    <div class="exp-option">
+        <i class="fas fa-gift exp-icon"></i>
+        <span>Gift Cards</span>
+    </div>
+    <div class="exp-option">
+        <i class="fas fa-users exp-icon"></i>
+        <span>Companion</span>
+    </div>
+</div>
+
+<div class="downloadapp">
+    <h1 class="down">
+        <i class="fas fa-mobile-alt icon-download"></i> Download App Now !
+    </h1>
+    <p class="cod">Use code <b>WELCOMEMMT</b> and get <b>FLAT 12% OFF*</b> on your first domestic flight booking</p>
+
+    <div class="mobnumb">
+        <ul>
+            <li class="ind"><img src="https://flagcdn.com/in.svg" alt="India Flag" style="width: 40px; height: auto; vertical-align:middle;"> +91</li>
+            <li><input class="num" type="number" placeholder="Enter your Number and get the link"></li>
+            <li><div class="subm"><b style="color:black;">Submit</b></div></li>
+        </ul>
+    </div>
+</div>
+<footer class="footer">
+    <p >&copy; 2025 TourEase. All Rights Reserved.</p>
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+         <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
+
+
+
+
+    <script>
+        function toggleSearch(id) {
+            var searchBar = document.getElementById(id);
+            searchBar.style.display = searchBar.style.display === 'block' ? 'none' : 'block';
+            if (searchBar.style.display === 'block') {
+                searchBar.focus();
+            }
+        }
+
+        function toggleDatePicker(id) {
+            var datePicker = document.getElementById(id);
+            datePicker.style.display = datePicker.style.display === 'block' ? 'none' : 'block';
+            if (datePicker.style.display === 'block') {
+                datePicker.focus();
+            }
+        }
+
+        function toggleTravellerInput(id) {
+            var travellerInput = document.getElementById(id);
+            travellerInput.style.display = travellerInput.style.display === 'block' ? 'none' : 'block';
+            if (travellerInput.style.display === 'block') {
+                travellerInput.focus();
+            }
+        }
+
+        document.getElementById('fromSearch').addEventListener('change', function() {
+            document.getElementById('fromCity').textContent = this.value;
+        });
+
+        document.getElementById('toSearch').addEventListener('change', function() {
+            document.getElementById('toCity').textContent = this.value;
+        });
+
+        document.getElementById('departureDate').addEventListener('change', function() {
+            document.getElementById('departureDateDisplay').textContent = new Date(this.value).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: '2-digit' });
+        });
+
+        document.getElementById('travellerCount').addEventListener('change', function() {
+            document.getElementById('travellerCountDisplay').textContent = this.value + ' Travellers';
+        });
+
+        // Highlight selected fare option
+        document.querySelectorAll('.offer input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.offer').forEach(offer => {
+                    offer.classList.remove('selected');
+                });
+                if (this.checked) {
+                    this.closest('.offer').classList.add('selected');
+                }
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const options = document.querySelectorAll(".option");
+            options.forEach(option => {
+                option.addEventListener("click", function () {
+                    options.forEach(opt => opt.classList.remove("selected"));
+                    this.classList.add("selected");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
