@@ -52,27 +52,45 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const loginBtn = document.getElementById("loginBtn");
     const registerBtn = document.getElementById("registerBtn");
     const logoutBtn = document.getElementById("logoutBtn");
 
     if (loginBtn) {
-        loginBtn.addEventListener("click", function () {
-            window.location.href = "home1.html"; // Redirect to Home Page
+        loginBtn.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (!email || !password) {
+                alert("Please enter both email and password.");
+                return;
+            }
+
+            // Check if email format is correct
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            // Proceed to redirect
+            window.location.href = "home1.html"; 
         });
+    }
+
     if (registerBtn) {
         registerBtn.addEventListener("click", function (event) {
             event.preventDefault(); // Prevent form submission
-            window.location.href = "home1.html"; // Redirect to Home Page
-            });
-        }
+            window.location.href = "home1.html"; 
+        });
     }
+
     if (logoutBtn) {
         logoutBtn.addEventListener("click", function () {
-            window.location.href = "index.html"; // Redirect to Login Page
+            window.location.href = "index.html"; 
         });
     }
 });
