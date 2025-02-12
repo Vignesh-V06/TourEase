@@ -1,0 +1,329 @@
+/* Reset Default Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+/* Header Styling */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 40px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 10;
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.logo .highlight {
+    color: red;
+}
+
+/* Slogan Styling */
+.slogan {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Merriweather', serif;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Login Button */
+.btn-login {
+    padding: 6px 30px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-login:hover {
+    background: white;
+    color: black;
+}
+
+/* Language Dropdown */
+#language-select {
+    margin-left: 15px;
+    padding: 6px 30px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    appearance: none;
+}
+
+#language-select:hover {
+    background: white;
+    color: black;
+}
+
+/* Body Styling */
+body {
+    background-color:rgba(16, 15, 15, 0.929);
+    /* Medium black color */
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bg-wrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    /* Adjusted to prevent overlap */
+    background-image: url('https://www.incredible-southindia.com/images/kerala-header.jpg');
+    /* Your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 600px;
+}
+
+/* Semi-transparent black overlay for better readability */
+.bg-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Adjust transparency here */
+    z-index: 1;
+}
+
+.vark {
+    width: 650px;
+    height: 300px;
+    color: white;
+    z-index: 2;
+    margin-top: 200px;
+    margin-right: 600px;
+}
+
+/* Thing Table Styling */
+.thing {
+    margin-top: 0;
+    /* Removed unnecessary space */
+    padding: 40px;
+    background: #444;
+    /* Lightish black color */
+    text-align: center;
+    width: 80%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    /* Box shadow for 3D effect */
+    border-radius: 12px;
+    position: relative;
+    top: 50px;
+    /* Moves it up to align right after bg-wrapper */
+    z-index: 4;
+    height: 1400px;
+    border: 2px solid #555;
+    /* Light gray border for 3D effect */
+}
+
+.thing h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: white;
+}
+.varkbc {
+    width: 350px;
+    height: 500px;
+    border-radius: 12px;
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(145deg, #2c2c2c, #3a3a3a);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6), 
+                -5px -5px 15px rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative; /* Ensures the button is placed inside */
+    overflow: hidden; /* Prevents any overflow */
+}
+
+.varkbc-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.varkbc h1 {
+    margin-top: 10px;
+    font-size: 22px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.varkbc p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 10px;
+}
+
+/* 🎯 Premium Explore Button (INSIDE the Box) */
+.explore-btn {
+    width: 80%;
+    padding: 12px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(145deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 15px; /* Keeps it inside the varkbc box */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5), 
+                -3px -3px 10px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🚀 Hover Effect */
+.explore-btn:hover {
+    background: linear-gradient(145deg, #0056b3, #004494);
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6), 
+                -5px -5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* 🎯 Click Effect */
+.explore-btn:active {
+    transform: translateX(-50%) scale(0.98);
+    box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.varkbc-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.varkbc {
+    width: 30%;
+    max-width: 350px;
+    height: 540px;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(145deg, #2c2c2c, #3a3a3a);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6), -5px -5px 15px rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .varkbc {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .varkbc {
+        width: 100%;
+    }
+}
+
+.ok{
+    margin-top: 80px;
+    /* Removed unnecessary space */
+    padding: 40px;
+    background: #444;
+    /* Lightish black color */
+    text-align: center;
+    width: 80%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    /* Box shadow for 3D effect */
+    border-radius: 12px;
+    position: relative;
+    /* Moves it up to align right after bg-wrapper */
+    z-index: 4;
+    height: 1400px;
+    border: 2px solid #555;
+    /* Light gray border for 3D effect */
+}
+.ok h1 {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 32px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.ok p {
+    font-size: 16px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 10px;
+}
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+    margin-top: 120px;
+    position: relative;
+    width: 100%;
+    background-color: black;
+}
+
+
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+   
+}
