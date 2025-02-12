@@ -52,45 +52,57 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    const loginBtn = document.getElementById("loginBtn");
-    const registerBtn = document.getElementById("registerBtn");
-    const logoutBtn = document.getElementById("logoutBtn");
+    const loginForm = document.querySelector(".form-box.login form");
+    const registerForm = document.querySelector(".form-box.register form");
 
-    if (loginBtn) {
-        loginBtn.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent default form submission
-            
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // 🚫 Prevent form submission
 
-            if (!email || !password) {
-                alert("Please enter both email and password.");
+            const emailField = loginForm.querySelector("input[type='email']");
+            const passwordField = loginForm.querySelector("input[type='password']");
+
+            if (!emailField || !passwordField) {
+                alert("Email or Password field is missing.");
                 return;
             }
 
-            // Check if email format is correct
+            const email = emailField.value.trim();
+            const password = passwordField.value.trim();
+
+            // Email validation
             const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             if (!emailPattern.test(email)) {
                 alert("Please enter a valid email address.");
                 return;
             }
 
-            // Proceed to redirect
-            window.location.href = "home1.html"; 
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return;
+            }
+
+            // ✅ If validation passes, redirect
+            alert("Login successful!");
+            window.location.href = "home1.html";
         });
     }
 
-    if (registerBtn) {
-        registerBtn.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent form submission
-            window.location.href = "home1.html"; 
+    if (registerForm) {
+        registerForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            alert("Registered successfully!");
+            window.location.href = "home1.html";
         });
     }
+    const logoutBtn = document.getElementById("logoutBtn");
 
     if (logoutBtn) {
         logoutBtn.addEventListener("click", function () {
-            window.location.href = "index.html"; 
+            window.location.href = "index.html"; // Redirect to Login Page
         });
     }
 });
