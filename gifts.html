@@ -1,0 +1,61 @@
+gifts.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Card - TourEase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="giftcards.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+    <header>
+      <div class="logo">T<span class="highlight">OUR</span>Ease</div>
+      <div class="slogan">Explore Beyond Limits</div>
+      <nav>
+          <button class="btn-login" onclick="window.location.href='index.html'">Login</button>
+          <select id="language-select">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="es">Español</option>
+              <option value="de">Deutsch</option>
+          </select>
+      </nav>
+    </header>
+
+
+
+</head>
+<body>
+    <div class="container">
+        <h1>🎁 Congratulations!🎁</h1>
+        <p style="font-weight: bold; position: relative; bottom: 10px;">Scan the QR code below to *claim your exclusive gift card*.</p>
+
+        <div class="qr-container">
+            <div id="qrcode"></div>
+        </div>
+
+        <button class="refresh-btn" onclick="generateQRCode()">Generate New QR</button>
+    </div>
+
+    <script>
+        function generateQRCode() {
+            document.getElementById("qrcode").innerHTML = ""; // Clear previous QR
+            const uniqueCode = "https://your-reward-link.com?code=" + Math.random().toString(36).substring(7); // Unique QR link
+            new QRCode(document.getElementById("qrcode"), {
+                text: uniqueCode,
+                width: 180,
+                height: 180,
+                colorDark: "#000",
+                colorLight: "#fff"
+            });
+        }
+
+        // Generate QR when page loads
+        window.onload = generateQRCode;
+    </script>
+</body>
+</html>

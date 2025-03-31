@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TourEase - My Companion</title>
+    <link rel="stylesheet" href="companion.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">T<span class="highlight">OUR</span>Ease</div>
+        <div class="slogan">Explore Beyond Limits</div>
+        <nav>
+            <button class="btn-login">Profile</button>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+            </select>
+        </nav>
+    </header>
+
+    <body>
+        <div class="companion-container">
+            <h2>Find a Travel Companion</h2>
+
+            <div class="companion-form">
+                <input type="text" id="companion-name" placeholder="Your Name">
+                <input type="text" id="companion-destination" placeholder="Destination">
+                <input type="date" id="companion-date">
+                <input type="number" id="companion-count" placeholder="Number of Companions">
+                <button onclick="addCompanion()">Find Companion</button>
+            </div>
+
+            <div class="filter-section">
+                <input type="text" id="filter-destination" placeholder="Filter by Destination"
+                    oninput="filterCompanions()">
+            </div>
+
+            <div id="companion-list" class="companion-list"></div>
+        </div>
+
+        <!-- Include JavaScript -->
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                preloadCompanions();
+                loadCompanions();
+            });
+
+            function preloadCompanions() {
+                if (!localStorage.getItem("companions")) {
+                    let defaultCompanions = [
+                        { name: "Aarav", destination: "Paris", date: "2025-06-10", count: 2 },
+                        { name: "Sophia", destination: "New York", date: "2025-07-15", count: 3 },
+                        { name: "Liam", destination: "Tokyo", date: "2025-08-20", count: 1 },
+                        { name: "Emma", destination: "Dubai", date: "2025-09-05", count: 4 },
+                    ];
+                    localStorage.setItem("companions", JSON.stringify(defaultCompanions));
+                }
+            }
+
+            function addCompanion() {
+                let name = document.getElementById("companion-name").value;
+                let destination = document.getElementById("companion-destination").value;
+                let date = document.getElementById("companion-date").value;
+                let count = document.getElementById("companion-count").value;
+
+                if (!name || !destination || !date || !count) {
+                    return alert("All fields are required!");
+                }
+
+                let companions = JSON.parse(localStorage.getItem("companions")) || [];
+                companions.push({ name, destination, date, count });
+
+                localStorage.setItem("companions", JSON.stringify(companions));
+                loadCompanions();
+
+                // Clear inputs
+                document.getElementById("companion-name").value = "";
+                document.getElementById("companion-destination").value = "";
+                document.getElementById("companion-date").value = "";
+                document.getElementById("companion-count").value = "";
+            }
+
+            function loadCompanions() {
+                let companions = JSON.parse(localStorage.getItem("companions")) || [];
+                let companionList = document.getElementById("companion-list");
+                companionList.innerHTML = "";
+
+                companions.forEach((companion, index) => {
+                    let companionDiv = document.createElement("div");
+                    companionDiv.classList.add("companion");
+
+                    companionDiv.innerHTML = `
+          <h3>📍 ${companion.destination}</h3>
+          <div class="companion-details">
+              <p><strong>👤 Name:</strong> ${companion.name}</p>
+              <p><strong>📅 Date:</strong> ${companion.date}</p>
+              <p><strong>👥 Companions:</strong> ${companion.count}</p>
+          </div>
+          <button class="combine-btn" onclick="combineCompanion('${companion.name}', '${companion.destination}', '${companion.date}')">🔗 Combine</button>
+          <button class="delete-btn" onclick="deleteCompanion(${index})">✖</button>
+      `;
+
+                    companionList.appendChild(companionDiv);
+                });
+            }
+
+            function deleteCompanion(index) {
+                let companions = JSON.parse(localStorage.getItem("companions")) || [];
+                let confirmDelete = confirm(
+                    `Are you sure you want to remove this companion request?`
+                );
+
+                if (confirmDelete) {
+                    companions.splice(index, 1);
+                    localStorage.setItem("companions", JSON.stringify(companions));
+                    loadCompanions();
+                }
+            }
+
+            function filterCompanions() {
+                let filterValue = document
+                    .getElementById("filter-destination")
+                    .value.toLowerCase();
+                let companions = JSON.parse(localStorage.getItem("companions")) || [];
+
+                let filteredCompanions = companions.filter((companion) =>
+                    companion.destination.toLowerCase().includes(filterValue)
+                );
+
+                let companionList = document.getElementById("companion-list");
+                companionList.innerHTML = "";
+
+                filteredCompanions.forEach((companion, index) => {
+                    let companionDiv = document.createElement("div");
+                    companionDiv.classList.add("companion");
+
+                    companionDiv.innerHTML = `
+          <h3>📍 ${companion.destination}</h3>
+          <div class="companion-details">
+              <p><strong>👤 Name:</strong> ${companion.name}</p>
+              <p><strong>📅 Date:</strong> ${companion.date}</p>
+              <p><strong>👥 Companions:</strong> ${companion.count}</p>
+          </div>
+          <button class="combine-btn" onclick="combineCompanion('${companion.name}', '${companion.destination}', '${companion.date}')">🔗 Combine</button>
+          <button class="delete-btn" onclick="deleteCompanion(${index})">✖</button>
+      `;
+
+                    companionList.appendChild(companionDiv);
+                });
+            }
+
+            function combineCompanion(name, destination, date) {
+                alert(
+                    `You are now matched with ${name} for a trip to ${destination} on ${date}!`
+                );
+            }
+
+        </script>
+
+
+
+    </body>
+
+</html>

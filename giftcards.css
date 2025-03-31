@@ -1,0 +1,211 @@
+giftcards.css
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 40px;
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  z-index: 10;
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.logo .highlight {
+  color: red;
+}
+
+/* Slogan Styling */
+.slogan {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Merriweather', serif;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Login Button */
+.btn-login {
+  padding: 6px 30px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-login:hover {
+  background: white;
+  color: black;
+}
+
+/* Language Dropdown */
+#language-select {
+  margin-left: 15px;
+  padding: 6px 30px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  appearance: none;
+}
+
+#language-select:hover {
+  background: white;
+  color: black;
+}
+
+body {
+  background: radial-gradient(circle at 50% 50%, #1b2735, #090a0f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+/* Glowing Effect */
+@keyframes glow {
+  0% { box-shadow: 0 0 10px #ff7300; }
+  50% { box-shadow: 0 0 20px #ff7300, 0 0 30px #ff4500; }
+  100% { box-shadow: 0 0 10px #ff7300; }
+}
+
+/* Neon Title */
+h1 {
+  font-size: 20px;
+  font-family: "Orbitron", sans-serif;
+  color: #ff7300;
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 10px #ff7300, 0px 0px 20px #ff4500;
+  animation: glow 1.5s infinite alternate;
+  position: relative;
+  bottom: 20px;
+}
+
+/* Glassmorphism Card */
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 10px 50px rgba(255, 255, 255, 0.1);
+  width: 90%;
+  max-width: 400px;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+/* QR Code Container */
+.qr-container {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 15px;
+  display: inline-block;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect for QR */
+.qr-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.3);
+}
+
+/* Button Styling */
+.refresh-btn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #ff7300, #ff4500);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  animation: pulse 1.5s infinite alternate;
+}
+
+/* Hover effect for Button */
+.refresh-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px rgba(255, 115, 0, 0.8);
+}
+
+/* Button Animation */
+@keyframes pulse {
+  0% { box-shadow: 0px 0px 10px rgba(255, 115, 0, 0.5); }
+  100% { box-shadow: 0px 0px 20px rgba(255, 69, 0, 0.9); }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Background Light Particles */
+@keyframes floating {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* Floating Particles */
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: floating 5s infinite ease-in-out;
+}
+
+.particle:nth-child(1) { top: 10%; left: 20%; animation-duration: 6s; }
+.particle:nth-child(2) { top: 50%; left: 80%; animation-duration: 7s; }
+.particle:nth-child(3) { top: 70%; left: 30%; animation-duration: 8s; }
+.particle:nth-child(4) { top: 90%; left: 60%; animation-duration: 9s; }
+.particle:nth-child(5) { top: 40%; left: 10%; animation-duration: 5s; }

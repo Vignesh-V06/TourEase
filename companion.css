@@ -1,0 +1,270 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: "Poppins", sans-serif;
+    background: #121212;
+    color: white;
+    text-align: center;
+    padding: 80px 20px 20px;
+}
+
+/* Header Styling */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 40px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 10;
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.logo .highlight {
+    color: red;
+}
+
+/* Slogan Styling */
+.slogan {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Merriweather", serif;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Login Button */
+.btn-login {
+    padding: 6px 30px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-login:hover {
+    background: white;
+    color: black;
+}
+
+/* Language Dropdown */
+#language-select {
+    margin-left: 15px;
+    padding: 6px 30px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    appearance: none;
+}
+
+#language-select:hover {
+    background: white;
+    color: black;
+}
+
+/* Main Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0px 0px 25px rgba(0, 255, 255, 0.3);
+}
+
+/* Companion Finder Section */
+.companion-container {
+    width: 100%;
+    padding: 25px;
+    background-color: #181818;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+/* Form Section */
+.companion-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.companion-form input,
+.companion-form button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #00bcd4;
+    background: #222;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+}
+
+.companion-form input:focus {
+    outline: none;
+    box-shadow: 0 0 8px #00bcd4;
+}
+
+.companion-form button {
+    cursor: pointer;
+    background: #00bcd4;
+    border: none;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+
+.companion-form button:hover {
+    background: #0288d1;
+    box-shadow: 0 0 10px #0288d1;
+}
+
+/* Filter Section */
+.filter-section {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.filter-section input {
+    width: 50%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ffeb3b;
+    background: #222;
+    color: white;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.filter-section input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #ffeb3b;
+}
+
+/* Companion List */
+.companion-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual Companion Card */
+.companion {
+    width: calc(33.333% - 20px);
+    min-width: 280px;
+    background: #252525;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+    position: relative;
+}
+
+.companion:hover {
+    background: #303030;
+    box-shadow: 0 0 12px rgba(0, 188, 212, 0.5);
+}
+
+.companion h3 {
+    color: #00bcd4;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .companion {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .companion {
+        width: 100%;
+    }
+}
+
+/* Combine Button (Centered) */
+.combine-btn {
+    background: #4caf50;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    transition: all 0.3s;
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+
+
+
+.combine-btn:hover {
+    background: #388e3c;
+    box-shadow: 0 0 12px #4caf50;
+}
+
+
+/* Delete Button */
+.companion .delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #d32f2f;
+    border: none;
+    color: white;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.companion .delete-btn:hover {
+    background: #ff5252;
+    box-shadow: 0 0 10px #ff5252;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TourEase - My Trips</title>
+    <link rel="stylesheet" href="mytrip.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">T<span class="highlight">OUR</span>Ease</div>
+      <div class="slogan">Explore Beyond Limits</div>
+      <nav>
+        <button class="btn-login">Profile</button>
+        <select id="language-select">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+        </select>
+      </nav>
+    </header>
+
+    <!-- Trip Storage -->
+    <div class="container">
+      <h2>✈️ My Trips</h2>
+      <input type="text" id="destination" placeholder="Enter Destination" />
+      <input type="date" id="date" />
+      <input
+        type="number"
+        id="members"
+        min="1"
+        placeholder="Number of Members"
+      />
+      <input type="date" id="reminder" />
+      <button onclick="addTrip()">➕ Add Trip</button>
+      <div id="trip-list"></div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem("trips")) {
+        preloadTrips();
+    }
+    loadTrips();
+    checkReminders();
+});
+
+function preloadTrips() {
+    let defaultTrips = [
+        { destination: "Paris", date: "2025-06-10", members: 2, reminder: "2025-06-05" },
+        { destination: "New York", date: "2025-07-15", members: 3, reminder: "2025-07-10" },
+        { destination: "Tokyo", date: "2025-08-20", members: 1, reminder: "2025-08-15" },
+        { destination: "Dubai", date: "2025-09-05", members: 4, reminder: "2025-09-01" }
+    ];
+
+    localStorage.setItem("trips", JSON.stringify(defaultTrips));
+}
+
+function addTrip() {
+    let destination = document.getElementById("destination").value;
+    let date = document.getElementById("date").value;
+    let members = document.getElementById("members").value;
+    let reminder = document.getElementById("reminder").value;
+
+    if (!destination || !date || !members || !reminder) {
+        return alert("All fields are required!");
+    }
+
+    let trips = JSON.parse(localStorage.getItem("trips")) || [];
+    trips.push({ destination, date, members, reminder });
+
+    localStorage.setItem("trips", JSON.stringify(trips));
+    loadTrips();
+
+    // Clear input fields
+    document.getElementById("destination").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("members").value = "";
+    document.getElementById("reminder").value = "";
+}
+
+function loadTrips() {
+    let trips = JSON.parse(localStorage.getItem("trips")) || [];
+    let tripList = document.getElementById("trip-list");
+    tripList.innerHTML = "";
+
+    trips.forEach((trip, index) => {
+        let tripDiv = document.createElement("div");
+        tripDiv.classList.add("trip");
+
+        tripDiv.innerHTML = `
+            <h3>📍 ${trip.destination}</h3>
+            <div class="trip-details">
+                <p><strong>📅 Date:</strong> ${trip.date}</p>
+                <p><strong>👥 Members:</strong> ${trip.members}</p>
+                <p><strong>⏳ Reminder:</strong> ${trip.reminder}</p>
+            </div>
+            <button class="delete-btn" onclick="deleteTrip(${index})">✖</button>
+        `;
+
+        tripList.appendChild(tripDiv);
+    });
+}
+
+function deleteTrip(index) {
+    let trips = JSON.parse(localStorage.getItem("trips")) || [];
+    let trip = trips[index];
+
+    let confirmDelete = confirm(`Are you sure you want to delete the trip to ${trip.destination}?`);
+
+    if (confirmDelete) {
+        trips.splice(index, 1);
+        localStorage.setItem("trips", JSON.stringify(trips));
+        loadTrips();
+    }
+}
+
+    </script>
+  </body>
+</html>
