@@ -140,6 +140,7 @@
   
   .terms label {
     font-weight: 400;
+    display: inline;
     color: var(--text-light);
     font-size: 0.95rem;
     cursor: pointer;
@@ -185,3 +186,25 @@
     }
   }
   
+
+.mass{
+  display: flex;
+  margin: 0;
+  background: none;
+  width: 25px;
+  position: relative;
+  bottom: 5px;
+  padding: 0;
+
+}
+
+.terms-container{
+  display: flex;
+  align-items: center;
+  
+}
+
+.peru{
+  display: flex;
+  margin-right: 3px;
+}
