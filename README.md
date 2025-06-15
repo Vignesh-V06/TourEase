@@ -1,5 +1,5 @@
 <h1 >
-  <span style="color:#ffff;">Tour</span><span style="color🍊;">Ease</span> - Frontend Project
+  <img src="TourEase logo.png" alt="TourEase Logo" style="margin:0" height="50"width="150"/> - Frontend Project
 </h1>
 
 **TourEase** is a user-friendly travel planning web app designed to simplify the way users explore destinations, view weather, and manage trips — all in one place.
